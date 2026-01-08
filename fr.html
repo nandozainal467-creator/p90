@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Pondok Pesantren Hidayatul Mubtadiin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+html,body{
+  margin:0;width:100%;height:100%;
+  font-family:Poppins,sans-serif;
+  color:#fff;
+}
+
+/* FOTO BACKGROUND */
+.bg-foto{
+  background:url('https://raw.githubusercontent.com/NdikzDatabase/Database/main/Database/1758018906200-xhkjgh.jpg') center/cover no-repeat;
+}
+
+@media(max-width:768px){
+  .bg-foto{
+    background-size: 140% auto;
+    background-position: center top;
+  }
+}
+
+/* OVERLAY */
+.bg-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(2px);
+  z-index:-2;
+}
+
+/* THREE */
+#bg{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+/* NAV */
+.nav{
+  position:fixed;
+  top:0;left:0;width:100%;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.35);
+  z-index:20;
+}
+.nav img{height:42px;filter:drop-shadow(0 0 10px gold)}
+
+/* HERO */
+.ui{text-align:center;padding-top:22vh}
+.ui h1{font-size:52px;text-shadow:0 0 30px rgba(212,175,55,.8)}
+.ui h1 span{color:#d4af37}
+.ui p{opacity:.85;margin-top:10px}
+
+/* SOCIAL */
+.social{
+  margin-top:36px;
+  display:grid;
+  grid-template-columns:repeat(4,60px);
+  justify-content:center;
+  gap:22px 26px;
+}
+.social a{
+  width:60px;height:60px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:16px;
+  background:linear-gradient(145deg,#1c3b2d,#081a12);
+  box-shadow:0 12px 26px rgba(0,0,0,.6);
+  transition:.35s;
+}
+.social img{width:28px;filter:drop-shadow(0 0 8px gold)}
+.social a:hover{transform:translateY(-8px)}
+
+/* PANEL */
+.panel{
+  margin:90px auto 0;
+  max-width:1100px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:32px;padding:0 18px;
+}
+.card{
+  background:rgba(15,30,25,.65);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 0 34px rgba(212,175,55,.2);
+}
+
+/* CTA */
+.cta{display:flex;justify-content:center;margin:90px 0 40px}
+.cta a{
+  padding:16px 38px;font-size:18px;font-weight:700;
+  border-radius:40px;
+  background:linear-gradient(135deg,#d4af37,#f5e28a);
+  color:#000;text-decoration:none;
+  box-shadow:0 18px 44px rgba(212,175,55,.6);
+}
+
+/* GALLERY */
+.gallery{max-width:1200px;margin:0 auto 120px;padding:0 18px}
+.gallery h2{text-align:center;color:#d4af37;margin-bottom:34px}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+}
+.gallery-grid img{
+  width:100%;height:190px;object-fit:cover;border-radius:16px;
+  box-shadow:0 0 24px rgba(212,175,55,.25);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .ui h1{font-size:34px}
+  .social{grid-template-columns:repeat(2,64px)}
+  .cta a{font-size:16px;padding:14px 28px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-foto"></div>
+<div class="bg-overlay"></div>
+
+<div class="nav">
+  <img src="https://h.top4top.io/p_36573a8sf1.png">
+</div>
+
+<canvas id="bg"></canvas>
+
+<div class="ui">
+  <h1>Pondok <span>Hidayatul Mubtadiin</span></h1>
+  <p>Membina Akhlak • Menjaga Tradisi • Menatap Masa Depan</p>
+
+  <div class="social">
+    <a href="https://instagram.com/USERNAME" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg"></a>
+    <a href="https://tiktok.com/@USERNAME" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg"></a>
+    <a href="https://youtube.com/@USERNAME" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg"></a>
+    <a href="https://website-khusus-wa.example" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg"></a>
+  </div>
+
+  <div class="panel">
+    <div class="card"><b>Tentang</b><br>Pondok pendidikan Islam berbasis Al-Qur’an dan Sunnah.</div>
+    <div class="card"><b>Visi</b><br>Melahirkan santri beriman dan berilmu.</div>
+    <div class="card"><b>Misi</b><br>Pendidikan terpadu, disiplin dan mandiri.</div>
+    <div class="card"><b>Program</b><br>Tahfidz, Diniyah, Kitab Kuning.</div>
+  </div>
+</div>
+
+<div class="cta">
+  <a href="https://example.com/pendaftaran" target="_blank">🚀 DAFTAR SEKARANG</a>
+</div>
+
+<section class="gallery">
+  <h2>Dokumentasi Kegiatan</h2>
+  <div class="gallery-grid">
+    <img src="doc1.jpg"><img src="doc2.jpg"><img src="doc3.jpg"><img src="doc4.jpg"><img src="doc5.jpg">
+  </div>
+</section>
+
+<script>
+/* THREE */
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,0.1,1000);
+camera.position.z=30;
+
+const renderer=new THREE.WebGLRenderer({canvas:bg,alpha:true,antialias:true});
+renderer.setSize(innerWidth,innerHeight);
+renderer.setPixelRatio(devicePixelRatio);
+
+scene.add(new THREE.AmbientLight(0xfff1c1,.7));
+const light=new THREE.PointLight(0xd4af37,2,200);
+light.position.set(0,10,30);
+scene.add(light);
+
+const geo=new THREE.BufferGeometry();
+const count=1200;
+const pos=new Float32Array(count*3);
+for(let i=0;i<count*3;i++)pos[i]=(Math.random()-.5)*120;
+geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+
+const mat=new THREE.PointsMaterial({color:0xd4af37,size:.6,transparent:true,opacity:.8});
+const particles=new THREE.Points(geo,mat);
+scene.add(particles);
+
+function animate(){
+  requestAnimationFrame(animate);
+  particles.rotation.y+=0.0008;
+  particles.rotation.x+=0.0004;
+  renderer.render(scene,camera);
+}
+animate();
+
+addEventListener('resize',()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+});
+</script>
+
+</body>
+</html>
